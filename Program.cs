@@ -6,16 +6,6 @@ namespace CypherCrescentAcademy
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
-            //Student Dozie = new Student("Dozie","nnadozie.opara@yahoo.com",8,new Frontend());
-            //Dozie.AskQuestion(new Facilitator("Murphy","Murphy@gmail.com",78, new Frontend()));
-            //Dozie.AskQuestion(Dozie);
-            //Dozie.AnswerQuestion();
-            //Dozie.AttendClass(WeekDays.Monday);
-            //Dozie.AttendClass(WeekDays.Thursday);
-            //Dozie.AttendClass(WeekDays.Tuesday);
-            //Console.Read();
-
             Programme frontEnd = new Frontend();
             Programme backEnd = new Backend();
             Human[] humans = new Human[]
@@ -37,6 +27,14 @@ namespace CypherCrescentAcademy
                 human.AttendClass(WeekDays.Monday);
                 human.AttendClass(WeekDays.Wednesday);
             }
+
+            var facilitator1 = new Facilitator("Dozie", "dozie@gmail.com", 1, frontEnd);
+            facilitator1.AskQuestion(new Student("Imeh", "dozie@gmail.com", 1, frontEnd));
+
+            var student1 = new Student("Imeh", "dozie@gmail.com", 1, frontEnd);
+            var student2 = new Student("Imeh", "dozie@gmail.com", 1, backEnd);
+            student1.AskQuestion(facilitator1);
+            student1.AskQuestion(student2);
 
             Console.Read();
         }
